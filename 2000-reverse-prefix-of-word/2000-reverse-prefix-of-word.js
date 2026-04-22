@@ -13,5 +13,5 @@ var reversePrefix = function(word, ch) {
         str+=word[i]
     }
     return str
-
+  
 };
