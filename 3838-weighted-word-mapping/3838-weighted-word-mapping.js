@@ -4,7 +4,7 @@
  * @return {string}
  */
 var mapWordWeights = function (words, weights) {
-    let obj = {},str="", string = {
+    let str="", string = {
         z: 0,
         y: 1,
         x: 2,
@@ -32,16 +32,11 @@ var mapWordWeights = function (words, weights) {
         b: 24,
         a: 25
     };
-    for (val of weights) {
-        for (let i = 0; i < weights.length; i++) {
-            let letter = String.fromCharCode(97 + i);
-            obj[letter] = weights[i]
-        }
-    }
-    for (i = 0; i < words.length; i++) {
-        let ch = words[i], sum = 0
-        for (j = 0; j < ch.length; j++) {
-            sum += obj[ch[j]]
+    for (val of words) {
+        let  sum = 0
+        for (j = 0; j < val.length; j++) {
+            let charIndex = val.charCodeAt(j) - 97
+            sum+=weights[charIndex]
         }
         let number = Math.abs(sum % 26)
         console.log(sum)
